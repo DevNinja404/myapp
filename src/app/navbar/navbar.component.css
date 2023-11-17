@@ -1,0 +1,38 @@
+.cdk-overlay-container {
+    /* position: fixed; */
+    z-index: 1000;
+}
+
+
+/* Define the side panel styles */
+#sidePanel {
+    position: fixed; /* Fixed position to keep it visible when scrolling */
+    top: 0;
+    left: -250px; /* Initially hidden by moving it outside the viewport */
+    width: 250px; /* Set the desired width of the side panel */
+    height: 100%; /* Make it cover the entire height of the viewport */
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+    transition: left 0.3s; /* Smooth transition for sliding effect */
+  
+    /* Additional styles, such as padding and font size */
+    padding: 20px;
+    font-size: 18px;
+  }
+  
+  /* Style for the content pushed to the right when the side panel is active */
+  .main-content {
+    transition: margin-left 0.3s; /* Smooth transition for the main content */
+    margin-left: 0; /* Push the content to the right when the side panel is active */
+  }
+  
+  /* Style for the active side panel */
+  #sidePanel.active {
+    left: 0; /* Slide it into view when active */
+  }
+  
+  /* Adjust the main content when the side panel is active */
+  .main-content.active {
+    margin-left: 250px; /* Adjust the margin to make space for the side panel */
+  }
+  

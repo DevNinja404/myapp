@@ -1,0 +1,38 @@
+{
+    "app.title": "SO2 Operations",
+    "add.button": "Add",
+    "Update.button": "Update",
+    "edit.button": "Edit",
+    "delete.button": "Delete",
+    "confirm.delete": "Are you sure?",
+    "Search.DaySO2Hrs":"Search DaySO2Hrs",
+    "Search.So2Id":"Search So2Id",
+    "Print":"Print",
+    
+    "dataItem.DaySO2Hrs":"DaySO2Hrs",
+    
+    "dataItem.DaySO2Water":"DaySO2Water",
+    "dataItem.CumSO2Hrs":"CumSO2Hrs",
+    "dataItem.CumSO2Water":"CumSO2Water",
+    "dataItem.Remarks":"Remarks",
+    "aria.label":"Select page",
+    "remarksField": "Remarks",
+
+    "valid.feedback":"Valid",
+    "invalid.feedbackMM":"Please fill less then 24.",
+    "invalid.feedback":"Please fill out this field.",
+
+     "Home":"Home",
+     "Operatation":"Operatation",
+     "Departments":"Departments",
+     "So2operation":"So2operation",
+     "Search":"Search",
+     "LogOut":"LogOut",
+
+     "DaySO2Hours": "DaySO2Hours",
+     "Item.DaySO2Hrs":"DaySO2Hrs"
+
+   
+
+}
+  

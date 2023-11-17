@@ -1,0 +1,79 @@
+
+<!-- <div class="d-flex flex-row bd-highlight mb-9">
+    <div class="p-2 w-100 bd-highlight">
+  
+      <div class="input-group mb-12">
+        <span class="input-group-text">DaySO2Hrs</span>
+        <input type="text" class="form-control" [(ngModel)]="DaySO2Hrs">
+        <span class="input-group-text">DaySO2Water</span>
+        <input type="text" class="form-control" [(ngModel)]="DaySO2Water">
+        <span class="input-group-text">CumSO2Hrs</span>
+        <input type="text" class="form-control" [(ngModel)]="CumSO2Hrs">
+        <span class="input-group-text">CumSO2Water</span>
+        <input type="text" class="form-control" [(ngModel)]="CumSO2Water">
+        <span class="input-group-text">Remarks</span>
+        <input type="text" class="form-control" [(ngModel)]="Remarks">
+
+      </div>
+    </div>
+  </div> -->
+  
+<div class="row g-3 align-items-center" class="was-validated">
+    <div class="col-auto">
+        <div class="input-group mb-3">
+            <span class="input-group-text">{{ 'dataItem.DaySO2Hrs' | translate }}</span>
+            <input type="number" class="form-control" [(ngModel)]="DaySO2Hrs" min="0" max="24"  placeholder="Enter value" required type="number">
+            <div class="valid-feedback">{{ 'valid.feedback' | translate }}</div>
+            <div class="invalid-feedback">{{ 'invalid.feedback' | translate }}</div>
+        </div>
+    </div>
+</div>
+<div class="row g-3 align-items-center" class="was-validated">
+    <div class="col-auto">
+        <div class="input-group mb-3">
+            <span class="input-group-text">{{ 'dataItem.DaySO2Water' | translate }}</span>
+            <input type="text" class="form-control" [(ngModel)]="DaySO2Water"  placeholder="Enter value" required type="number">
+            <div class="valid-feedback">{{ 'valid.feedback' | translate }}</div>
+            <div class="invalid-feedback">{{ 'invalid.feedback' | translate }}</div>
+        </div>
+    </div>
+</div>
+<div class="row g-3 align-items-center" class="was-validated">
+    <div class="col-auto">
+        <div class="input-group mb-3">
+            <span class="input-group-text">{{ 'dataItem.CumSO2Hrs' | translate }}</span>
+            <input type="text" class="form-control" [(ngModel)]="CumSO2Hrs" min="0" max="24" placeholder="Enter value" required type="number">
+            <div class="valid-feedback">{{ 'valid.feedback' | translate }}</div>
+            <div class="invalid-feedback">{{ 'invalid.feedbackMM' | translate }}</div>
+        </div>
+    </div>
+</div>
+<div class="row g-3 align-items-center" class="was-validated">
+    <div class="col-auto">
+        <div class="input-group mb-3">
+            <span class="input-group-text">{{ 'dataItem.CumSO2Water' | translate }}</span>
+            <input type="text" class="form-control" [(ngModel)]="CumSO2Water" placeholder="Enter value" required type="number">
+            <div class="valid-feedback">{{ 'valid.feedback' | translate }}</div>
+            <div class="invalid-feedback">{{ 'invalid.feedback' | translate }}</div>
+        </div>
+    </div>
+</div>
+<div class="row g-3 align-items-center" class="was-validated">
+    <div class="col-auto">
+        <div class="input-group mb-3">
+            <!-- <span class="input-group-text">{{ 'dataItem.Remarks' | translate }}</span> -->
+            <span class="input-group-text">{{ 'remarksField' | translate }}</span>
+            <textarea   class="form-control" name="composeContent" translate="yes" id="Textarea1" [(ngModel)]="Remarks" rows="3" required></textarea>
+            <div class="valid-feedback">{{ 'valid.feedback' | translate }}</div>
+            <div class="invalid-feedback">{{ 'invalid.feedback' | translate }}</div>
+        </div>
+    </div>
+</div>
+
+  <button (click)="addSO2Operation()"  *ngIf="So2.Id == '0'" class="btn btn-primary">
+    {{ 'add.button' | translate }} 
+  </button>
+  
+  <button (click)="UpdateSO2Operation()" *ngIf="So2.Id !='0'" class="btn btn-primary">
+    {{ 'Update.button' | translate }} 
+  </button>

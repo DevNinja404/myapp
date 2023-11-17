@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* print-styles.css */
+
+/* Define styles for headers and footers */
+.print-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .print-header img {
+    max-height: 50px; /* Set the appropriate height for your logo */
+    margin-right: 20px;
+    color: #000;
+  }
+  
+  .print-footer {
+    text-align: center;
+    font-size: 12px;
+  }
+  

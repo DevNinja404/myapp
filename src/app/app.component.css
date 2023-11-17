@@ -1,0 +1,22 @@
+/* Mobile-first styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Tablet styles */
+  @media (min-width: 768px) {
+    header {
+      padding: 20px;
+    }
+  }
+  
+  /* Desktop styles */
+  @media (min-width: 1024px) {
+    header {
+      padding: 30px;
+    }
+  }
+  

@@ -1,0 +1,35 @@
+{
+    "app.title": "SO2 ऑपरेशन",
+    "add.button": "जोड़ें",
+    "Update.button": "अद्यतन",
+    "edit.button": "संपादित करें",
+    "delete.button": "हटाएं",
+    "confirm.delete": "क्या आपको यकीन है?",
+    "Search.DaySO2Hrs":"खोज दिनSO2Hrs",
+    "Search.So2Id":"खोज So2Id",
+    "dataItem.DaySO2Hrs":"दिनSO2घंटे",
+    "Print":"छपाई",
+
+    "dataItem.DaySO2Water":"दिनSO2पानी",
+    "dataItem.CumSO2Hrs":"CumSO2घंटे",
+    "dataItem.CumSO2Water":"CumSO2पानी",
+    "dataItem.Remarks":"टिप्पणी",
+    "aria.label":"पेज चुनें",
+    "remarksField": "टिप्पणियाँ",    
+  
+    "valid.feedback":"वैध",
+    "invalid.feedbackMM":"कृपया 24 संख्या से कम भरें।",
+
+    "invalid.feedback":"कृपया इस क्षेत्र को भरें।",
+
+    "Home":"घर",
+    "Operatation":"संचालन",
+    "Departments":"विभागों",
+    "So2operation":"So2संचालन",
+    "Search":"खोजें",
+    "LogOut":"लॉग आउट",
+
+    "Item.DaySO2Hrs":"दिनSO2घंटे",
+    "DaySO2Hours": "दिनSO2घंटे"
+  }
+  

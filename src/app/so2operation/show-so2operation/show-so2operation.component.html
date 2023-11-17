@@ -1,0 +1,128 @@
+<div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{ ModalTitle }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                (click)="closeClick()"></button>
+            </div>
+            <div class="modal-body">
+              <app-add-edit-so2operation [So2]="So2" *ngIf="ActivateAddEditSo2Comp"></app-add-edit-so2operation>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive-sm" style="overflow-x: hidden;">
+      <div class="row">
+        <tr class="row">
+          <th class="col-12 col-lg-3 d-lg">
+            <div class="d-flex align-items-center">
+              <!-- <div class="input-group"> -->
+              <input class="form-control m-1" style="width: 100px;font-size: 13px;" [(ngModel)]="So2IdFilter"
+                (keyup)="FilterFn()" placeholder="{{ 'Search.So2Id' | translate }}" data-toggle="tooltip" data-placement="top" title="{{ 'Search.So2Id' | translate }}">
+
+              <button class="btn btn-light" (click)="sortResult('Id', true)" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Up">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                </svg>
+              </button>
+              <button class="btn btn-light" (click)="sortResult('Id', false)" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Down">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                   viewBox="0 0 16 16">
+                  <path
+                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg>
+              </button>
+              <!-- </div> -->
+            </div>
+          </th>
+          <th class="col-12 col-lg-3 d-lg">
+            <div class="d-flex align-items-center">
+
+              <input class="form-control m-1" style="width: 100px;font-size: 13px;" [(ngModel)]="DaySO2HrsFilter"
+                (keyup)="FilterFn()" placeholder="{{ 'Search.DaySO2Hrs' | translate }}" data-toggle="tooltip" data-placement="top" title="{{ 'Search.DaySO2Hrs' | translate }}" >
+                
+              <button class="btn btn-light" (click)="sortResult('DaySO2Hrs', true)" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Up">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                </svg> <!-- Down arrow icon -->
+              </button>
+
+              <button class="btn btn-light" (click)="sortResult('DaySO2Hrs', false)" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Down">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                   viewBox="0 0 16 16">
+                  <path
+                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                </svg> <!-- Up arrow icon -->
+              </button>
+              <div style="width: 2rem;"></div>
+              <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="addClick()" >{{ 'add.button' | translate }}
+              </button>
+              <!-- <button class="btn btn-outline-success btn-sm" (click)="changeLanguage('en')">En</button>
+              <button class="btn btn-outline-success btn-sm" (click)="changeLanguage('hi')">हिन्दी</button> -->
+              
+            </div>
+          </th>
+        </tr>
+        <div [class.isPrinting]="printService.isPrinting">
+        <div class="container mt-3" style="max-height: 600px; overflow-y: auto; overflow-x: hidden;">
+          <div class="row">
+            <div #printContent class="so2operation" class="col-12 col-lg-3" *ngFor="let dataItem of So2operationList">
+              <div class="card border-warning mb-3 cards--horizontal"  style="font-size: 0.75rem;">
+                <div class="card-header" style="font-size:medium;">{{ dataItem.Id | translate}}</div>
+                <div class="card-body text-warning cards cols cols--tight">
+                  <h5 class="card-title"  style="font-size: 0.75rem;">{{ 'dataItem.DaySO2Hrs' | translate }}:      {{ dataItem.DaySO2Hrs}}</h5>
+                  <p class="card-text" style="font-size: 0.75rem;">{{ 'dataItem.DaySO2Water' | translate }}:      {{ dataItem.DaySO2Water}}</p>
+                  <p class="card-text" style="font-size: 0.75rem;">{{ 'dataItem.CumSO2Hrs' | translate }}:        {{ dataItem.CumSO2Hrs}}</p>
+                  <p class="card-text" style="font-size: 0.75rem;">{{ 'dataItem.CumSO2Water' | translate }}:      {{ dataItem.CumSO2Water}}</p>
+                  <p class="card-text" rows="2" style="overflow-x: auto; white-space: nowrap; font-size: 0.85rem;width: 100%;">
+                    {{ 'dataItem.Remarks' | translate }}:
+                    {{ dataItem.Remarks }}</p>
+
+                    <button (click)="editClick(dataItem)"  class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-backdrop="static" data-keyboard="false" data-bs-target="#exampleModal">{{ 'edit.button' | translate }}</button>
+                    <button (click)="deleteClick(dataItem)" class="btn btn-danger btn-sm me-2">{{ 'delete.button' | translate }}</button>
+                    
+                    <button (click)="print(dataItem)"  class="btn btn-primary btn-sm me-2" *ngIf="printContent">{{ 'Print' | translate }}</button>
+                  <!-- <button class="btn btn-primary btn-sm me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    (click)="editClick(dataItem)" data-backdrop="static" data-keyboard="false">
+                    Edit
+                  </button> -->
+                  <!-- <button class="btn btn-primary btn-sm" (click)="deleteClick(dataItem)">
+                    Delete
+                  </button> -->                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+       
+      </div>
+      <mat-paginator style="align-items: normal; justify-content: center;"  [length]="So2operationList.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page" (page)="onPageChange($event)"></mat-paginator>
+    </div>
+
+   
+   
+    <!-- <div class="row">
+      
+    </div> -->
+  
+</div>

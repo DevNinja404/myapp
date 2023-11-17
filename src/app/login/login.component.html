@@ -1,0 +1,95 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+  <!-- Bootstrap core CSS -->
+  <!-- Favicons -->
+
+  <!-- <meta name="theme-color" content="#4285f4"> -->
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .toast-center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      /* Adjust this value as needed */
+    }
+
+    .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   /* background-color: rgb(245, 235, 235); */
+   color: white;
+   text-align: center;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+
+</head>
+
+<body class="text-center">
+
+  <main class="form-signin">
+    <form name="form" (ngSubmit)="login()" #f="ngForm">
+      <img class="mb-4" src="\assets\KSL_FNL-Logo-1.png" alt="" width="72" height="57">
+
+
+      <h1 class="h3 mb-3 fw-normal">Welcome! Please log in</h1>
+
+      <div class="form-floating">
+        <input type="text" name="UserName" [(ngModel)]="model.UserName" class="form-control" id="floatingInput"
+          placeholder="Email" required>
+        <label for="floatingInput">User Name</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" name="password" [(ngModel)]="model.Password" id="floatingPassword"
+          placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <!-- <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div> -->
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <div *ngIf="errorMessage">
+        <!-- <p style="color:#E92626;font-size:20px;font-weight:normal" Class="success" align="center">
+          {{errorMessage}}
+        </p> -->
+      </div>
+
+
+    </form>
+   
+  </main>
+  <div class="footer">
+    <p class="mt-5 mb-3 text-muted">Copyright by Kasyap © 2017–2023</p>
+  </div>
+
+</body>

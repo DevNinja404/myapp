@@ -1,0 +1,71 @@
+USE [SampleDB]
+GO
+
+/****** Object:  Table [dbo].[Department]    Script Date: 17-11-2023 10.17.12 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Department](
+	[DepartmentID] [int] IDENTITY(1,1) NOT NULL,
+	[DepartmentName] [varchar](50) NULL,
+ CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED 
+(
+	[DepartmentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+USE [SampleDB]
+GO
+
+/****** Object:  Table [dbo].[SO2_Operation]    Script Date: 17-11-2023 10.18.00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[SO2_Operation](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[DaySO2Hrs] [int] NULL,
+	[DaySO2Water] [int] NULL,
+	[CumSO2Hrs] [int] NULL,
+	[CumSO2Water] [int] NULL,
+	[Remarks] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+USE [SampleDB]
+GO
+
+/****** Object:  Table [dbo].[tbl_login]    Script Date: 17-11-2023 10.19.16 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tbl_login](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](250) NULL,
+	[Password] [varchar](250) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+

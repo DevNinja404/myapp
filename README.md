@@ -25,3 +25,44 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Small Walkthrough
+Applying Clean Architecture to ASP.NET Core Web API
+
+Folder Structure: (ErpOperatation) Folder Outside its a ASP.NET Core Web API(Backend) dotnet --version 7.0.402
+Folder Structure: (myapp) Front End Angular Version 17.0.3
+Step 1: Project Structure
+Create the following folders in your project:
+
+Core: Contains application entities and business logic.
+Infrastructure: Contains implementations of external services and databases.
+Application: Orchestrates the flow of data and tasks between the UI, the entities, and the infrastructure.
+WebApi: Contains the presentation layer.
+
+
+Step 2: Core Layer (Model Class)
+Core/Entities/SO2_Operation.cs
+
+Step 3: Infrastructure Layer
+Infrastructure/Persistence/APIDbContext.cs
+and 
+Infrastructure/Repositories/SO2OperationRepository.cs
+
+New (***********)
+Step 4: Application Layer
+Application/Services/SO2OperationService.cs
+
+Step 5: WebApi Layer
+WebApi/Controllers/SO2OperationController.cs
+
+Step 6: Dependency Injection Setup
+In the Startup.cs file of your WebApi project, configure the dependency injection:
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddScoped<ISO2OperationRepository, SO2OperationRepository>();
+    services.AddScoped<SO2OperationService>();
+}
+This service acts as an intermediary between the repository and the controller.
+It contains methods to get, add, update, and delete SO2 operations.
+The service methods call corresponding methods in the repository.
+Now, you can inject the SO2OperationService into your controller in the WebApi layer and use it to interact with your SO2 operation data.

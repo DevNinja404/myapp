@@ -1,5 +1,6 @@
 ﻿using ErpOperatation.Models;
 using ErpOperatation.Repository;
+using ErpOperatation.Services;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,31 +11,41 @@ namespace ErpOperatation.Controllers
     [ApiController]
     public class SO2OperationController : ControllerBase
     {
-        private readonly ISO2OperationRepository _so2operation;
+        // private readonly ISO2OperationRepository _so2operation;
+        private readonly SO2OperationService _so2OperationService;
 
-        public SO2OperationController(ISO2OperationRepository so2operation)
+        //public SO2OperationController(ISO2OperationRepository so2operation)
+        //{
+        //    _so2operation = so2operation ?? throw new ArgumentNullException(nameof(_so2operation));
+        //}
+        public SO2OperationController(SO2OperationService so2OperationService)
         {
-            _so2operation = so2operation ?? throw new ArgumentNullException(nameof(_so2operation));
+            _so2OperationService = so2OperationService ?? throw new ArgumentNullException(nameof(so2OperationService));
         }
+        //[HttpGet]
+        //[Route("GetSO2Operation")]
+        //public async Task<IActionResult> Get()
+        //{
+        //    return Ok(await _so2operation.GetSO2Operation());
+        //}
         [HttpGet]
         [Route("GetSO2Operation")]
         public async Task<IActionResult> Get()
         {
-            return Ok(await _so2operation.GetSO2Operation());
+            return Ok(await _so2OperationService.GetSO2Operation());
         }
-
         [HttpGet]
         [Route("GetSO2OperationByID/{Id}")]
         public async Task<IActionResult> GetSO2OperationByID(int Id)
         {
-            return Ok(await _so2operation.GetSO2OperationByID(Id));
+            return Ok(await _so2OperationService.GetSO2OperationByID(Id));
         }
 
         [HttpPost]
         [Route("AddSO2Operation")]
         public async Task<IActionResult> Post(SO2_OperationModel so2operation)
         {
-            var result = await _so2operation.InsertSO2Operation(so2operation);
+            var result = await _so2OperationService.AddSO2Operation(so2operation);
             if (result.Id == 0)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something Went Wrong");
@@ -55,7 +66,7 @@ namespace ErpOperatation.Controllers
         {
             try
             {
-                var updatedSO2Operation = await _so2operation.UpdateSO2Operation(so2operation);
+                var updatedSO2Operation = await _so2OperationService.UpdateSO2Operation(so2operation);
 
                 if (updatedSO2Operation != null)
                 {
@@ -82,7 +93,7 @@ namespace ErpOperatation.Controllers
         [Route("DeleteSO2Operation/{Id}")]
         public JsonResult Delete(int id)
         {
-            _so2operation.DeleteSO2Operation(id);
+            _so2OperationService.DeleteSO2Operation(id);
             return new JsonResult("Deleted Successfully");
         }
     }

@@ -1,4 +1,5 @@
 ﻿using ErpOperatation.Repository;
+using ErpOperatation.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -26,6 +27,8 @@ namespace ErpOperatation
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ISO2OperationRepository, SO2OperationRepository>();
+            //New Line (****) Clean Arthiteture
+            services.AddScoped<SO2OperationService>();
             //services.AddScoped<IEmployeeAngularRepository, EmployeeAngularRepository>();
 
             services.AddDbContext<APIDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("EmployeeAppCon")));

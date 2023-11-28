@@ -4,5 +4,5 @@ export class Register {
     Password:string;  
     Email:string;  
     ContactNo:string;  
-    Address:string  
+    Address:string  ;
 }

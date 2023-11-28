@@ -54,18 +54,19 @@ export class LoginComponent implements OnInit {
         }
       },
       (error) => {
-        this.errorMessage = 'Please enter Correct Credentials';
+        this.errorMessage = 'Please enter Correct Credential';
         this.showErrorMessage(this.errorMessage);
       }
     );
   }
 
   showErrorMessage(message: string) {
-    this.toastr.error(message, 'Error', {
+    this.toastr.success(message, 'Error', {
       timeOut: 2000,
       toastClass: 'custom-error-toast', // Add your custom CSS class here
       positionClass: 'toast-bottom-center', // Adjust the position as needed    
-     
+      messageClass:'toast-body'
     });
+  // this.toastr.success('Hello world!', 'Toastr fun!');
   }
 }

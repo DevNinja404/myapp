@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd,ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -16,15 +17,20 @@ export class NavbarComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         // Check if the active route is 'login'
         this.isDefaultRouteLogin = event.url === '/login';
-        this.translate.setDefaultLang('en');
+        //this.translate.setDefaultLang('en');
+
+        const queryParams = this.route.snapshot.queryParamMap;
+        const selectedLanguage = queryParams.get('lang');
+
+        if (selectedLanguage) {
+          this.translate.use(selectedLanguage);
+        } else {
+          // Set your default language here if no query parameter is present
+          this.translate.setDefaultLang('en');
+        }
       }
     });
   }
-
-  // Function to change the language
-  // changeLanguage(language: string) {
-  //   this.translate.use(language);
-  // }
 
   changeLanguage(language: string) {
     // Set the selected language in the translation service
@@ -36,12 +42,14 @@ export class NavbarComponent implements OnInit {
       queryParams: { lang: language },
       queryParamsHandling: 'merge', // Keep existing query parameters
     });
+    this.translate.use(language);
   }
 
   navigateToSo2Operation(language: string) {
     console.log(`Navigating to so2operation with language: ${language}`);
     this.router.navigate(['/so2operation'], { queryParams: { lang: language } });
   }
-  
-  
-}
+  deleteAll(){
+    sessionStorage.clear();
+  }
+ }

@@ -7,5 +7,7 @@ export interface So2Operation {
     CumSO2Hrs: string;
     CumSO2Water: string;
     Remarks: string;
+    // CreatedDate: string;
+    CreatedDate: Date; // Modify 
   }
   

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Milind Bilonia\ErpOperatation\bin\Release\net7.0\publish</_PublishTargetUrl>
+    <History>True|2023-11-27T10:37:44.5600054Z;True|2023-11-27T15:42:54.9863121+05:30;True|2023-11-20T16:32:55.3386900+05:30;True|2023-11-20T16:06:41.4365743+05:30;True|2023-11-20T15:47:25.6868694+05:30;True|2023-11-20T14:16:46.1089393+05:30;True|2023-11-20T14:13:05.9887642+05:30;True|2023-11-20T12:25:14.7890325+05:30;True|2023-11-20T10:02:06.7345407+05:30;True|2023-11-18T17:34:30.0688503+05:30;True|2023-11-18T17:10:39.2442899+05:30;False|2023-11-18T17:10:17.8569353+05:30;True|2023-11-18T16:01:06.7583867+05:30;False|2023-11-18T15:56:29.8212142+05:30;False|2023-11-18T15:55:59.3516982+05:30;True|2023-11-18T15:34:54.0315192+05:30;False|2023-11-18T15:29:28.8882254+05:30;False|2023-11-18T15:28:10.8598864+05:30;False|2023-11-18T15:22:31.9175147+05:30;False|2023-11-18T15:17:37.5432373+05:30;False|2023-11-18T15:09:30.5413853+05:30;False|2023-11-18T15:08:17.1408379+05:30;False|2023-11-18T15:07:47.4034915+05:30;False|2023-11-18T15:07:26.7927726+05:30;False|2023-11-18T15:06:23.9249857+05:30;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="EmployeeAppCon">
+      <Value>Data Source=KSLMUM-SVR-DB%3bInitial Catalog= SampleDB%3buid=kslsoft%3bPassword=kasyap%401234%3bIntegrated Security=false%3bTrustServerCertificate=True%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -103,7 +103,13 @@ h4 {
   font-size: 12px;
 }
 
-
+/*Set width and height of span*/
+.mySpan{
+  display: block;
+  width: 300px;
+  height: 100px;
+  background: yellow;
+}
 /* Media Queries */
 @media screen and (min-width: 620px) {
   body {
@@ -211,7 +217,12 @@ h4 {
     min-height: 100px;
     resize: vertical;
   }
-
+@media print {
+  /* Mobile-specific styles for printing */
+  body {
+    font-size: 12pt;
+  }
+}
   @media (max-width: 400px) {
     input, textarea {
       font-size: 14px;
@@ -227,7 +238,8 @@ h4 {
 /* Custom styles for Bootstrap cards */
 .card {
   border: 1px solid #e0e0e0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 2px 4px rgb(207 155 10);
   transition: transform 0.2s;
   margin-bottom: 20px;
   min-width: 250px;
@@ -237,7 +249,7 @@ h4 {
 
 .card:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(4, 134, 185, 0.678);
 }
 
 .card-header {

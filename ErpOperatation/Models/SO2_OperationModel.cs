@@ -24,6 +24,10 @@ namespace ErpOperatation.Models
 
         [Required(ErrorMessage = "Remarks is required.")]
         public string Remarks { get; set; }
+
+        [Display(Name = "CreatedDate")]
+        public DateTime? CreatedDate { get; set; }
+        
         #endregion
     }
 }

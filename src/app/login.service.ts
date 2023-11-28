@@ -6,7 +6,8 @@ import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:51582/api/'; // Replace with your API endpoint
+ // private apiUrl = 'http://192.168.100.93:86/api/'; // Replace with your API endpoint For IIS
+  private apiUrl = 'http://localhost:51582/api/';
 
   isAuthenticated: boolean = false;
 

@@ -14,6 +14,7 @@ namespace ErpOperatation
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
@@ -47,6 +48,10 @@ namespace ErpOperatation
                  .AllowAnyHeader());
             });
 
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AutomaticAuthentication = true;
+            });
             //JSON Serializer
             services.AddControllersWithViews().AddNewtonsoftJson(options =>
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
@@ -58,9 +63,14 @@ namespace ErpOperatation
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.IsDevelopment()||env.IsProduction())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            if (env.IsProduction() || env.IsStaging() || env.IsEnvironment("Staging_2"))
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
             }
 
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -91,5 +101,7 @@ namespace ErpOperatation
             //    RequestPath = "/Photos"
             //});
         }
+
+
     }
 }

@@ -20,15 +20,4 @@ export class AppComponent {
 //     this.printService.printDocument('so2operation',so2operation);
 // }
 
-onPrintInvoice() {
-  const documentName = 'so2operation'; // Change this to the desired document name
-  const documentData = this.getHtmlContent(); // Replace this with how you obtain the HTML content
-  this.printService.printDocument(documentName, documentData);
-}
-
-getHtmlContent(): string {
-  // Replace this with code to get the HTML content you want to print
-  return '<div><h1>Hello, World!</h1></div>';
-}
-
 }

@@ -26,7 +26,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import {NgxPrintModule} from 'ngx-print';
 import { PrintLayoutComponent } from './print-layout/print-layout.component';
-import {PrintService} from './print.service';
+
 
 // Create a loader function for translations
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,14 +48,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule,
-    MatPaginatorModule, MatInputModule, MatSelectModule,NoopAnimationsModule,BrowserAnimationsModule,NgxPrintModule,
-    
-    ToastrModule.forRoot({
-      timeOut: 3000, // Duration of the toast
-      positionClass: 'toast-top-center', // Position of the toast
-      preventDuplicates: true, // Prevent duplicate toasts
-      // Other configuration options
-    }),       
+    MatPaginatorModule, MatInputModule, MatSelectModule,NoopAnimationsModule,BrowserAnimationsModule,NgxPrintModule,  
+    ToastrModule.forRoot(),     
     TranslateModule.forRoot({ // Add this TranslateModule configuration
       loader: {
         provide: TranslateLoader,

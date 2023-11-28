@@ -41,8 +41,8 @@ body {
 
 /* Add this to your styles.css or styles.scss file */
 .custom-error-toast {
-  background-color: red !important;
-  color: white !important;
+  background-color: rgb(251, 255, 0) !important;
+  color: rgb(53, 75, 170) !important;
 }
 
 .toast-center {

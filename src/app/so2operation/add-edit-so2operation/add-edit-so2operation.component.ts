@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,ChangeDetectionStrategy  } from '@angular/core';
 import { Apiso2operationserviceService } from 'src/app/apiso2operationservice.service';
 
 
 @Component({
   selector: 'app-add-edit-so2operation',
   templateUrl: './add-edit-so2operation.component.html',
-  styleUrls: ['./add-edit-so2operation.component.css']
+  styleUrls: ['./add-edit-so2operation.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush // Set the change detection strategy
 })
 export class AddEditSo2operationComponent implements OnInit {
   constructor(private service: Apiso2operationserviceService) { }
@@ -17,6 +18,7 @@ export class AddEditSo2operationComponent implements OnInit {
   CumSO2Water = "";
   Remarks = ""; 
 
+   so2OperationList: any[] = [];
   ngOnInit(): void {
 
     this.Id = this.So2.Id;
@@ -24,7 +26,7 @@ export class AddEditSo2operationComponent implements OnInit {
     this.DaySO2Water = this.So2.DaySO2Water;
     this.CumSO2Hrs = this.So2.CumSO2Hrs;
     this.CumSO2Water = this.So2.CumSO2Water;
-    this.Remarks = this.So2.Remarks;  
+    this.Remarks = this.So2.Remarks;      
   }
 
   addSO2Operation() {
@@ -38,14 +40,10 @@ export class AddEditSo2operationComponent implements OnInit {
     };
     this.service.addSO2_Operation(So2).subscribe(
       (res: any) => {
-        if (res === "Added Successfully") {
-          alert("Added Successfully");
-        } else {
-          alert("Something Went Wrong");
-        }
+        res === 'Added Successfully' ? alert('Added Successfully') : alert('Something Went Wrong');        
       },
       (error) => {
-        alert("Error occurred: " + error);
+        alert('Error occurred: ' + error);
       }
     );
   }
@@ -62,7 +60,7 @@ export class AddEditSo2operationComponent implements OnInit {
     this.service.UpdateSO2Operation(So2).subscribe(
       (res) => {
         if (res === "Updated Successfully") {
-          alert("Updated Successfully");
+          alert("Updated Successfully");          
         } else {
           alert("Something Went Wrong");
           console.log("Update failed. Response:", res); // Log the response for debugging
@@ -72,7 +70,5 @@ export class AddEditSo2operationComponent implements OnInit {
         alert("Error occurred: " + error);
       }
     );
-  }
-  
-
+  } 
 }

@@ -6,8 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiserviceService {
-  readonly apiUrl = 'http://localhost:51582/api/';
-  readonly photoUrl = "http://localhost:51582/Photos/";
+  // private apiUrl = 'http://192.168.100.93:86/api/'; // Replace with your API endpoint For IIS
+  private apiUrl = 'http://localhost:51582/api/';
+  readonly photoUrl = "http://localhost:86/Photos/";
 
   constructor(private http: HttpClient) { }
 

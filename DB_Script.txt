@@ -65,6 +65,40 @@ PRIMARY KEY CLUSTERED
 ) ON [PRIMARY]
 GO
 
+## FOR INSERT SO2 OPERATAION SCRIPT
+INSERT INTO [dbo].[SO2_Operation]
+           ([DaySO2Hrs]
+           ,[DaySO2Water]
+           ,[CumSO2Hrs]
+           ,[CumSO2Water]
+           ,[Remarks]
+           ,[CreatedDate])
+     VALUES
+(11, 4, 5, 4, 'TEST B99', '2023-11-29 15:11:49.783'),
+(12, 5, 6, 5, 'TEST BULK12', '2023-11-29 15:11:49.783'),
+(13, 6, 7, 6, 'TEST BULK13', '2023-11-29 15:11:49.783'),
+(14, 7, 8, 7, 'TEST BULK14', '2023-11-29 15:11:49.783'),
+(15, 8, 9, 8, 'TEST BULK15', '2023-11-29 15:11:49.783'),
+(16, 9, 10, 9, 'TEST BULK16', '2023-11-29 15:11:49.783'),
+(17, 10, 11, 10, 'TEST BULK17', '2023-11-29 15:11:49.783'),
+(18, 11, 12, 11, 'TEST BULK18', '2023-11-29 15:11:49.783'),
+(19, 12, 13, 12, 'TEST BULK19', '2023-11-29 15:11:49.783'),
+(20, 13, 14, 13, 'TEST BULK20', '2023-11-29 15:11:49.783')
+
+GO
+
+## FOR LOGIN USER INSERT
+USE [SampleDB]
+GO
+
+INSERT INTO [dbo].[tbl_login]
+           ([Name]
+           ,[Password])
+     VALUES
+('Admin','123')
+GO
+
+
 
 
 
